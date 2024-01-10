@@ -1,2 +1,0 @@
-# tj-te
-test tj
