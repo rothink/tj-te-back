@@ -58,7 +58,7 @@ class BaseController extends Controller implements ControllerInterface
     public function store(Request $request): JsonResponse
     {
         try {
-            if ($this->createRequest) {
+            if (isset($this->createRequest)) {
                 $createRequest = app($this->createRequest);
                 $request->validate($createRequest->rules());
             }
