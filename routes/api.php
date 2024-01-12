@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('books/pre-requisite', [BookController::class, 'preRequisite']);
+Route::resource('books', BookController::class);
+Route::resource('authors', AuthorController::class);
+Route::resource('subjects', SubjectController::class);
 
-Route::get('/health', function(Request $request) {
+//Route::get('report', function(){
+//
+//});
+
+Route::post('report', [ReportController::class, 'report']);
+
+Route::get('/health', function (Request $request) {
     return response()->json(['ok' => true]);
 });
