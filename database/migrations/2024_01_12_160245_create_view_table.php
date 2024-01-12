@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement("CREATE VIEW relation_view AS
+        DB::statement("CREATE OR REPLACE VIEW relation_view AS
             select
                 a.id , 
                 a.nome,
