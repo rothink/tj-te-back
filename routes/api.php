@@ -24,10 +24,6 @@ Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
 Route::resource('subjects', SubjectController::class);
 
-//Route::get('report', function(){
-//
-//});
-
 Route::post('report', [ReportController::class, 'report']);
 
 Route::get('/health', function (Request $request) {
