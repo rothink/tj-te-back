@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\BookSubjectsFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,9 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            BookSeeder::class,
             AuthorSeeder::class,
-            SubjectSeeder::class
+            SubjectSeeder::class,
+            BookSeeder::class,
         ]);
     }
 }
