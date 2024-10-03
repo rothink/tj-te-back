@@ -10,17 +10,21 @@
         cd tj-te-back
 
 
-- Subir os serviços com docker
+- Subir os serviços com docker e instalar as dependências
   >
-        docker-compose up --build -d
+        make install
 
 
-- Install migration
+- Rodas as migrations
   >
-        docker exec -it test_back php artisan migrate:fresh  --seed
+        make migration
+
+- Rodas as migrations com seeder
+  >
+        make migration
 
 - Executar os testes
   >
-        docker exec -it test_back php artisan test
+        make test
 
         
