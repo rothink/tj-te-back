@@ -15,8 +15,8 @@ return new class extends Migration
             select
                 a.id , 
                 a.nome,
-                GROUP_CONCAT( b.titulo SEPARATOR ',  ') as livros,
-                GROUP_CONCAT(s.descricao SEPARATOR ',  ') as assuntos
+                GROUP_CONCAT( DISTINCT b.titulo SEPARATOR ',  ') as livros,
+                GROUP_CONCAT( DISTINCT s.descricao SEPARATOR ',  ') as assuntos
             from
                 authors a
             left join book_authors ba on
