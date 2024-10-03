@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Author;
 use App\Models\Subject;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -15,7 +16,7 @@ class BookTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_list_books(): void
+    public function test_list(): void
     {
         $response = $this->get($this->prefixUrl);
         $response->assertStatus(200);
@@ -50,6 +51,14 @@ class BookTest extends TestCase
         $response = $this->post($this->prefixUrl, $params);
         $response = $this->delete($this->prefixUrl . json_decode($response->getContent())->data->response->id);
         $response->assertStatus(200);
+    }
+
+    public function test_can_not_create_a_book_with_year_after_now(): void
+    {
+        $params = $this->makeParams();
+        $params['anoPublicacao'] = Carbon::now()->addYear(1)->format('Y');
+        $response = $this->post($this->prefixUrl, $params);
+        $response->assertStatus(422);
     }
 
     public function makeParams()

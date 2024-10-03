@@ -13,7 +13,7 @@ class SubjectTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_list_books(): void
+    public function test_list(): void
     {
         $response = $this->get($this->prefixUrl);
         $response->assertStatus(200);
