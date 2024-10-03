@@ -19,7 +19,7 @@ class BookSubjectResource extends JsonResource
         return [
             'id' => $this->id,
             'book_id' => $this->book_id,
-            'author_id' => $this->author_id,
+            'subject_id' => $this->subject_id,
             'book' => Book::find($this->book_id),
             'subject' => new SubjectResource(Subject::find($this->subject_id))
         ];

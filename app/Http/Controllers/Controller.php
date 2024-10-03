@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Controller as BaseController;
 use Symfony\Component\HttpFoundation\Response;
 

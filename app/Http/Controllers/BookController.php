@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateBookFormRequest;
 use App\Http\Resources\BookResource;
 use App\Services\BookService;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class BookController extends BaseController
 {
