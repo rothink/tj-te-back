@@ -1,8 +1,8 @@
 services:
-    test_back:
-        container_name: test_back
+    back.app:
+        container_name: back.app
         build:
-            context: ./vendor/laravel/sail/runtimes/8.3
+            context: ./docker/8.3
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
@@ -23,8 +23,9 @@ services:
         networks:
             - sail
         depends_on:
-            - mysql
-    mysql:
+            - db.mysql
+    db.mysql:
+        container_name: db.mysql
         image: 'mysql/mysql-server:8.0'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
