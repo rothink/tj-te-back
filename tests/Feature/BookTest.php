@@ -45,6 +45,15 @@ class BookTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_find_exception(): void
+    {
+        $params = $this->makeParams();
+        $this->post($this->prefixUrl, $params);
+        $response = $this->get($this->prefixUrl . 9999999999999999);
+        $response->assertStatus(422);
+        $response->assertContent('{"status":"error","message":"Objeto n\u00e3o encontrado no database"}');
+    }
+
     public function test_delete(): void
     {
         $params = $this->makeParams();
@@ -59,6 +68,7 @@ class BookTest extends TestCase
         $params['anoPublicacao'] = Carbon::now()->addYear(1)->format('Y');
         $response = $this->post($this->prefixUrl, $params);
         $response->assertStatus(422);
+        $response->assertContent('{"status":"error","message":"N\u00e3o \u00e9 permitido livros do futuro"}');
     }
 
     public function makeParams()

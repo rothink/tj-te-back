@@ -55,6 +55,10 @@ class BookService extends BaseService
      */
     public function update(Request $request, int|string $id): Model
     {
+        if ($request->input('anoPublicacao') > Carbon::now()->year) {
+            throw new \Exception('Não é permitido livros do futuro');
+        }
+
         $book = parent::update($request, $id);
 
         $paramsAuthors = $this->mountAuthor($request->all(), $book);
