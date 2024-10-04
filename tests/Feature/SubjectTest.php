@@ -53,7 +53,7 @@ class SubjectTest extends TestCase
     public function makeParams()
     {
         return [
-            'descricao' => fake()->text,
+            'descricao' => fake()->word,
         ];
     }
 }

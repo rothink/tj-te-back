@@ -53,7 +53,7 @@ class AuthorTest extends TestCase
     public function makeParams()
     {
         return [
-            'nome' => fake()->word,
+            'nome' => fake()->name(),
         ];
     }
 }
