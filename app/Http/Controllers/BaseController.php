@@ -106,7 +106,7 @@ class BaseController extends Controller implements ControllerInterface
             $this->service->delete($id);
             return $this->success();
         } catch (\Exception $e) {
-            return $this->error($this->messageErrorDefault, $e->getMessage());
+            return $this->error($e->getMessage());
         }
     }
 
